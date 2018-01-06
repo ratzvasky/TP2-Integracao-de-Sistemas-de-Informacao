@@ -11,9 +11,41 @@
 
         <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White">
 
-            <TabItem Header="Endereços de IP" Background="WhiteSmoke"></TabItem>
+            <!-- Amba com a parte do trabalho sobre IP-->
+            <TabItem Header="Endereços de IP" Background="WhiteSmoke">
 
+                <Canvas>
+
+                    <Button x:Name="botaoGetIP" Click="BotaoGetIP" Background="WhiteSmoke" Height="20" Canvas.Left="64" Canvas.Top="50" Width="64">
+                        <StackPanel>
+                            <TextBlock Text="Get my IP" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="botaoGetIPInfo"   Click="BotaoGetIPInfo" Background="WhiteSmoke" Canvas.Left="64" Canvas.Top="90" Height="20" Width="64">
+                        <StackPanel>
+                            <TextBlock Text="IP Info" TextAlignment="Center" Height="15" Width="54"  />
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock Text="Endereço IP a analisar" TextAlignment="Center" Height="15" Width="170" Canvas.Left="64" Canvas.Top="134"  />
+                    <TextBox x:Name="TextBoxIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Canvas.Left="64" Canvas.Top="154"/>
+
+                    <ListView x:Name="ApresentaJson" Height="125" Width="124" Canvas.Left="375" Canvas.Top="67">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Canvas>
+            </TabItem>
+
+
+            <!-- Amba do trabalho sobre moedas Virtuais -->
             <TabItem Header="Moedas Virtuais" Background="WhiteSmoke"></TabItem>
+
 
         </TabControl>
     </Grid>
