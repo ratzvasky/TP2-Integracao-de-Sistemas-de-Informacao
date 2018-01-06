@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabalho2_ISI_Cliente"
         mc:Ignorable="d"
-        Title="JanelaPrincipal" Height="720" Width="1280">
-    
+        Title="Trabalho Pratico de Integração de Sistemas de Informação " ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" Width="1280" Height="720" >
+
     <Grid>
-        <TextBlock> asdads </TextBlock>
+
+        <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White">
+
+            <TabItem Header="Endereços de IP" Background="WhiteSmoke"></TabItem>
+
+            <TabItem Header="Moedas Virtuais" Background="WhiteSmoke"></TabItem>
+
+        </TabControl>
     </Grid>
 </Window>
