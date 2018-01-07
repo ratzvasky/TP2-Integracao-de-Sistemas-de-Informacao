@@ -122,36 +122,41 @@ namespace Trabalho2_ISI_Cliente
                 jsonSerializer = new DataContractJsonSerializer(typeof(EnderecoIPInfo));
                 respostaObjecto = jsonSerializer.ReadObject(response.GetResponseStream());
                 respostaJson = (EnderecoIPInfo)respostaObjecto;
-            }
-            ListView listView = new ListView();
+            }   
 
-         
 
-            ApresentaJson.ItemsSource = (IEnumerable)respostaJson;
+            #region Mostra os dados
 
-            /*
-            #region Salvaguarda dados 
-
-            // Guarda apenas os campos necessarios
-            respotaLimpa.ip = respostaJson.ip;
-            respotaLimpa.city = respostaJson.city;
-            respotaLimpa.region = respostaJson.region;
-            respotaLimpa.country = respostaJson.country;
-            respotaLimpa.country_name = respostaJson.country_name;
-            respotaLimpa.postal = respostaJson.postal;
-            respotaLimpa.latitude = respostaJson.latitude;
-            respotaLimpa.longitude = respostaJson.longitude;
-            respotaLimpa.timezone = respostaJson.timezone;
-            respotaLimpa.org = respostaJson.org;
+   
+            CidadeIP.Text = respostaJson.city;
+            PaisIndicativoIP.Text = respostaJson.city;
+            PaisIndicativoIP.Text = respostaJson.region;
+            PaisIndicativoIP.Text = respostaJson.country;
+            PaisIP.Text = respostaJson.country_name;
+            CodigoPostalIP.Text = respostaJson.postal;
+            Latitude.Text = respostaJson.latitude.ToString();
+            Longitude.Text = respostaJson.longitude.ToString();
+            TimezoneIP.Text = respostaJson.timezone;
+            ISP.Text = respostaJson.org;
+            RegiaoIP.Text = respostaJson.region;
 
             #endregion
-            */
+            
 
         }
 
+
         #endregion
 
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
+
+        private void TextBoxIP_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
     #region Aux

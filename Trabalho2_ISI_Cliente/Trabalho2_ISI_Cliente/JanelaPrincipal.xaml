@@ -3,41 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Trabalho2_ISI_Cliente"
+        xmlns:local="clr-namespace:Trabalho2_ISI_Cliente"       
         mc:Ignorable="d"
         Title="Trabalho Pratico de Integração de Sistemas de Informação " ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" Width="1280" Height="720" >
 
+
     <Grid>
 
-        <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White">
+        <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White" SelectionChanged="TabControl_SelectionChanged">
 
             <!-- Amba com a parte do trabalho sobre IP-->
             <TabItem Header="Endereços de IP" Background="WhiteSmoke">
 
                 <Canvas>
 
-                    <Button x:Name="botaoGetIP" Click="BotaoGetIP" Background="WhiteSmoke" Height="20" Canvas.Left="64" Canvas.Top="50" Width="64">
+                    <Button x:Name="botaoGetIP" Click="BotaoGetIP" Background="WhiteSmoke" Height="20" Canvas.Left="284" Canvas.Top="146" Width="72">
                         <StackPanel>
                             <TextBlock Text="Get my IP" TextAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="botaoGetIPInfo"   Click="BotaoGetIPInfo" Background="WhiteSmoke" Canvas.Left="64" Canvas.Top="90" Height="20" Width="64">
+                    <Button x:Name="botaoGetIPInfo"   Click="BotaoGetIPInfo" Background="WhiteSmoke" Canvas.Left="64" Canvas.Top="197" Height="20" Width="170">
                         <StackPanel>
-                            <TextBlock Text="IP Info" TextAlignment="Center" Height="15" Width="54"  />
+                            <TextBlock TextAlignment="Center" Height="15" Width="167"  ><Run Text="Get "/><Run Text="IP Info"/></TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <TextBlock Text="Endereço IP a analisar" TextAlignment="Center" Height="15" Width="170" Canvas.Left="64" Canvas.Top="134"  />
-                    <TextBox x:Name="TextBoxIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Canvas.Left="64" Canvas.Top="154"/>
+                    <TextBlock TextAlignment="Center" Height="15" Width="170" Canvas.Left="64" Canvas.Top="116"  ><Run Text="Endereço IP a analisar"/><Run Text=" :"/></TextBlock>
+                    <TextBox x:Name="TextBoxIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Canvas.Left="64" Canvas.Top="146" TextChanged="TextBoxIP_TextChanged"/>
 
-                    <ListView x:Name="ApresentaJson" Height="125" Width="124" Canvas.Left="375" Canvas.Top="67">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <TextBlock Text="Informação sobre o IP:"  TextAlignment="Center" Height="20" Width="183" Canvas.Left="843" Canvas.Top="77"  />
+
+
+                    <TextBlock Text="Cidade"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="129"  />
+                    <TextBox x:Name="CidadeIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="129"/>
+
+                    <TextBlock  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="182"  ><Run Text="Indicativo Pa"/><Run Text="í"/><Run Text="s"/></TextBlock>
+                    <TextBox x:Name="PaisIndicativoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="182"/>
+
+                    <TextBlock  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="235" RenderTransformOrigin="1.775,0.5"  ><Run Text="Pa"/><Run Text="í"/><Run Text="s"/></TextBlock>
+                    <TextBox x:Name="PaisIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="235"/>
+
+                    <TextBlock Text="Latitude"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="287" RenderTransformOrigin="0.366,0.45"  />
+                    <TextBox x:Name="Latitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="280"/>
+
+                    <TextBlock Text="Longitude"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="331"  />
+                    <TextBox x:Name="Longitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="331"/>
+
+                    <TextBlock Text="ISP"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="374"  />
+                    <TextBox x:Name="ISP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="374"/>
+
+                    <TextBlock Text="CodigoPostal"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="420"  />
+                    <TextBox x:Name="CodigoPostalIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="420"/>
+
+                    <TextBlock Text="Região"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="463"  />
+                    <TextBox x:Name="RegiaoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="463"/>
+
+                    <TextBlock Text="Timezone"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="509"  />
+                    <TextBox x:Name="TimezoneIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="509" RenderTransformOrigin="0.453,1.15"/>
+
+
 
                 </Canvas>
             </TabItem>
