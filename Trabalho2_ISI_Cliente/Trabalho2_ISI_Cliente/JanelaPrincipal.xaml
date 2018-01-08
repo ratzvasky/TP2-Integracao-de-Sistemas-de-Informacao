@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl HorizontalAlignment="Left" Height="689" Width="1272"  VerticalAlignment="Top" Background="White" >
 
             <!-- Amba com a parte do trabalho sobre IP-->
             <TabItem Header="Endereços de IP" Background="WhiteSmoke">
@@ -30,37 +30,37 @@
                     </Button>
 
                     <TextBlock TextAlignment="Center" Height="15" Width="170" Canvas.Left="64" Canvas.Top="116"  ><Run Text="Endereço IP a analisar"/><Run Text=" :"/></TextBlock>
-                    <TextBox x:Name="TextBoxIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Canvas.Left="64" Canvas.Top="146" TextChanged="TextBoxIP_TextChanged"/>
+                    <TextBox x:Name="TextBoxIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Canvas.Left="64" Canvas.Top="146"/>
 
                     <TextBlock Text="Informação sobre o IP:"  TextAlignment="Center" Height="20" Width="183" Canvas.Left="843" Canvas.Top="77"  />
 
 
                     <TextBlock Text="Cidade"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="129"  />
-                    <TextBox x:Name="CidadeIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="129"/>
+                    <TextBox x:Name="CidadeIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="129" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="182"  ><Run Text="Indicativo Pa"/><Run Text="í"/><Run Text="s"/></TextBlock>
-                    <TextBox x:Name="PaisIndicativoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="182"/>
+                    <TextBox x:Name="PaisIndicativoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="182" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="235" RenderTransformOrigin="1.775,0.5"  ><Run Text="Pa"/><Run Text="í"/><Run Text="s"/></TextBlock>
-                    <TextBox x:Name="PaisIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="235"/>
+                    <TextBox x:Name="PaisIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="235" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="Latitude"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="287" RenderTransformOrigin="0.366,0.45"  />
-                    <TextBox x:Name="Latitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="280"/>
+                    <TextBox x:Name="Latitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="280" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="Longitude"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="331"  />
-                    <TextBox x:Name="Longitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="331"/>
+                    <TextBox x:Name="Longitude" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="331" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="ISP"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="374"  />
-                    <TextBox x:Name="ISP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="374"/>
+                    <TextBox x:Name="ISP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="374" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="CodigoPostal"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="420"  />
-                    <TextBox x:Name="CodigoPostalIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="420"/>
+                    <TextBox x:Name="CodigoPostalIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="420" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="Região"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="463"  />
-                    <TextBox x:Name="RegiaoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="463"/>
+                    <TextBox x:Name="RegiaoIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="463" IsReadOnly="True" BorderThickness="0"/>
 
                     <TextBlock Text="Timezone"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="747" Canvas.Top="509"  />
-                    <TextBox x:Name="TimezoneIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="509" RenderTransformOrigin="0.453,1.15"/>
+                    <TextBox x:Name="TimezoneIP" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="843" Canvas.Top="509" RenderTransformOrigin="0.453,1.15" IsReadOnly="True" BorderThickness="0"/>
 
 
 
@@ -68,9 +68,74 @@
             </TabItem>
 
 
-            <!-- Amba do trabalho sobre moedas Virtuais -->
-            <TabItem Header="Moedas Virtuais" Background="WhiteSmoke"></TabItem>
+            <!-- Aba do trabalho sobre Twitter -->
+            <TabItem Header="Twitter" Background="WhiteSmoke">
+                <Canvas>
 
+                    <TextBlock Text="Escreva a mensagem que deseja escrever no Tweet!"  TextAlignment="Center" Height="20" Width="317" Canvas.Left="65" Canvas.Top="69"  />
+                    <TextBox x:Name="MessagemTweet" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Canvas.Left="65" Canvas.Top="94" RenderTransformOrigin="0.453,1.15" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="BotaoSendTweet" Click="BotaoEnviaTweet" Background="WhiteSmoke" Canvas.Left="138" Canvas.Top="133" Height="20" Width="170">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Center" Height="15" Width="130" Text="Envia Tweet" />
+                        </StackPanel>
+                    </Button>
+
+
+                    <Button x:Name="BotaoMostraTweet" Click="BotaoMostraBrowser" Background="WhiteSmoke" Canvas.Left="138" Canvas.Top="222" Height="20" Width="170">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Center" Height="15" Width="130" Text="Mostra Tweet" />
+                        </StackPanel>
+                    </Button>
+                    <WebBrowser x:Name="Browser" Height="641" Width="857" Canvas.Left="399" Canvas.Top="10"  />
+
+                </Canvas>
+            </TabItem>
+
+
+            <!-- Aba do trabalho sobre a meteo -->
+            <TabItem Header="Meteorologia" Background="WhiteSmoke">
+                <Canvas>
+
+                    <Button x:Name="BotaoGetWeather" Background="WhiteSmoke" Canvas.Left="64" Canvas.Top="140" Height="21" Width="196" Click="BotaoInformacaoMeteo">
+                        <StackPanel>
+                            <TextBlock TextAlignment="Center" Height="18" Width="151"  Text="Informação meteorologica"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="EnviaTweetMeteo" Background="WhiteSmoke" Canvas.Left="64" Canvas.Top="190" Height="21" Width="196" Click="EnviaTweet"  >
+                        <StackPanel>
+                            <TextBlock TextAlignment="Center" Height="18" Width="151"  Text="Envia tweet com meteo"/>
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock TextAlignment="Center" Height="15" Width="196" Canvas.Left="64" Canvas.Top="62"  Text="Cidade para a informação do tempo: "/>
+                    <TextBox x:Name="NomeCidadeWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Canvas.Left="64" Canvas.Top="94"/>
+
+
+                    <TextBlock Text="Cidade"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="723" Canvas.Top="120"  />
+                    <TextBox x:Name="CidadeWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="120" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock Text="País"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="723" Canvas.Top="164"  />
+                    <TextBox x:Name="PaisWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="164" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock Text="Descrição"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="723" Canvas.Top="205"  />
+                    <TextBox x:Name="DescricaoWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="205" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock  TextAlignment="Center" Height="20" Width="94" Canvas.Left="717" Canvas.Top="251"  ><Run Text="Temperatura"/><Run Text=" (°C)"/></TextBlock>
+                    <TextBox x:Name="Temperatura" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="251" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock Text="Humidade (%)"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="723" Canvas.Top="303"  />
+                    <TextBox x:Name="HumidadeWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="303" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock  TextAlignment="Center" Height="20" Width="102" Canvas.Left="713" Canvas.Top="351"  ><Run Text="Vento (met"/><Run Text="ros"/><Run Text="/sec)"/></TextBlock>
+                    <TextBox x:Name="VentoWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="351" IsReadOnly="True" BorderThickness="0"/>
+
+                    <TextBlock Text="Pressão (hPa)"  TextAlignment="Center" Height="20" Width="82" Canvas.Left="723" Canvas.Top="397"  />
+                    <TextBox x:Name="PressaoWeather" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Canvas.Left="829" Canvas.Top="397" IsReadOnly="True" BorderThickness="0"/>
+
+
+                </Canvas>
+            </TabItem>
 
         </TabControl>
     </Grid>

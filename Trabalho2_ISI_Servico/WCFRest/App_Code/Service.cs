@@ -13,6 +13,8 @@ using System.Text;
 using System.Net;
 using System.Web;
 using System.Runtime.Serialization.Json;
+using TinyTwitter;
+
 
 
 /// <summary>
@@ -20,6 +22,16 @@ using System.Runtime.Serialization.Json;
 /// </summary>
 public class Service : IService
 {
+
+    #region Aux
+
+    private string consumerKey = "YnIjqi1adbf5dUKCVNOGHtGIk";
+    private string consumerKeySecret = "ZkWPYU1EWseIna0ESd22YCNIgOyhIatFZLVAsiDgUSlqRgYxbC";
+    private string accessToken = "950413886330753026-b4gMKXY2U020iE0hRybqwGed0CULdHG";
+    private string accessTokenSecret = "AO6Cqq6DYieFIf0Hkb0Wh4dVXibGhsrjaGQz25EkeJRUk";
+    private string weatherKey = "fdd4806b070459f96cd26e191823ae87";
+
+    #endregion
 
 
     /// <summary>
@@ -113,11 +125,109 @@ public class Service : IService
         url = "https://api.ipify.org";
 
         // Recebe o endereço
-        publicIp = webClient.DownloadString(url); 
+        publicIp = webClient.DownloadString(url);
 
 
         return publicIp;
     }
 
 
+    /// <summary>
+    /// Método que recebe um mensagem do cliente e faz um tweet dessa mensagem
+    /// </summary>
+    /// <param name="mensagem"> Texto da mensagem </param>
+    /// <returns>Bool a indicar o sucesso da operação</returns>
+    public bool Tweet(string mensagem)
+    {
+
+        // Atribui a informação necessaria para o OAuth
+        var oauth = new OAuthInfo
+        {
+            AccessToken = accessToken,
+            AccessSecret = accessTokenSecret,
+            ConsumerKey = consumerKey,
+            ConsumerSecret = consumerKeySecret
+        };
+
+        try
+        {
+            // Utiliza o protocolo oauth para se ligar a api do twitter
+            var twitter = new TinyTwitter.TinyTwitter(oauth);
+
+            // Envia o Tweet
+            twitter.UpdateStatus(mensagem);
+
+
+        }
+        catch (Exception e)
+        {
+            return false;
+            throw e;
+        }
+
+
+
+        return true;
+    }
+
+    
+    /// <summary>
+    /// Método que vai consultar a informação do tempo de uma dada cidade
+    /// </summary>
+    /// <param name="nomeCidade">nome da cidade</param>
+    /// <returns>Objecto com a informação do tempo</returns>
+    public Tempo GetWeatherInfo(string nomeCidade)
+    {
+
+        #region Variaveis
+
+        HttpWebRequest request;
+        StringBuilder uri;
+        string url;
+        string parametrosUri;
+        Tempo respostaJson;
+        object respostaObjecto;
+        DataContractJsonSerializer jsonSerializer;
+
+        #endregion
+
+        parametrosUri = "&mode=json&units=metric&APPID=";
+        url = "http://api.openweathermap.org/data/2.5/weather?q=" + nomeCidade + parametrosUri + weatherKey;
+
+     
+
+
+        // Construi URI
+        uri = new StringBuilder();
+        uri.Append(url);
+
+
+        // Prepara e envia pedido
+        request = WebRequest.Create(uri.ToString()) as HttpWebRequest;
+
+
+        // Analisa a resposta
+        using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+        {
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                string message = String.Format("GET falhou. Recebido HTTP {0}", response.StatusCode);
+                throw new ApplicationException(message);
+            }
+
+            //Serializa de JSON para Objecto
+            jsonSerializer = new DataContractJsonSerializer(typeof(Tempo));
+            respostaObjecto = jsonSerializer.ReadObject(response.GetResponseStream());
+            respostaJson = (Tempo)respostaObjecto;
+        }
+
+
+        return respostaJson;
+
+    }
 }
+
+
+
+
+
