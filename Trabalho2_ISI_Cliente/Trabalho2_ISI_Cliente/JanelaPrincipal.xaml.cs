@@ -55,7 +55,7 @@ namespace Trabalho2_ISI_Cliente
             #endregion
 
 
-            url = "http://localhost:6418/Service.svc/MyIp";
+            url = "http://wcfrest20180109101801.azurewebsites.net/Service.svc/MyIp";
 
             // Recebe o endereço
             enderecoIP = webClient.DownloadString(url);
@@ -89,7 +89,7 @@ namespace Trabalho2_ISI_Cliente
 
 
             // Alterar quando publicar o serviço
-            url = "http://localhost:6418/Service.svc/GetIPInfo/";
+            url = "http://wcfrest20180109101801.azurewebsites.net//Service.svc/GetIPInfo/";
             enderecoIP = TextBoxIP.Text;
 
 
@@ -173,7 +173,7 @@ namespace Trabalho2_ISI_Cliente
             jsonSerializer = new DataContractJsonSerializer(typeof(string));
             memoria = new MemoryStream();
             webClient = new WebClient();
-            uriServico = "http://localhost:6418/Service.svc/Tweet"; // atualizar quando publicar 
+            uriServico = "http://wcfrest20180109101801.azurewebsites.net//Service.svc/Tweet"; // atualizar quando publicar 
 
 
             // Converte o objecto para uma string data (já está pronto para o envio de objectos)
@@ -223,7 +223,7 @@ namespace Trabalho2_ISI_Cliente
 
 
             // Alterar quando publicar o serviço
-            url = "http://localhost:6418/Service.svc/Weather/";
+            url = "http://wcfrest20180109101801.azurewebsites.net/Service.svc/Weather/";
 
             cidade = NomeCidadeWeather.Text;
 
@@ -309,7 +309,7 @@ namespace Trabalho2_ISI_Cliente
             jsonSerializer = new DataContractJsonSerializer(typeof(string));
             memoria = new MemoryStream();
             webClient = new WebClient();
-            uriServico = "http://localhost:6418/Service.svc/Tweet"; // atualizar quando publicar 
+            uriServico = "http://wcfrest20180109101801.azurewebsites.net/Service.svc/Tweet"; // atualizar quando publicar 
 
 
             // Converte o objecto para uma string data (já está pronto para o envio de objectos)

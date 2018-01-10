@@ -91,7 +91,7 @@ Podemos consultar na figura seguinte um diagrama com a arquitectura do projecto.
 
 \begin{figure} [!h]
 \centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/diagrama}
+\includegraphics[width=\textwidth]{Prints_Trabalho/diagrama.png}
 \caption{Diagrama da arquitectura do projecto}
 \label{Rotulo}
 \end{figure}
@@ -100,80 +100,121 @@ Podemos consultar na figura seguinte um diagrama com a arquitectura do projecto.
 \clearpage
 
 
-% Principais Passos
-\chapter*{Principais momentos ETL}
-\addcontentsline{toc}{chapter}{Principais momentos ETL}
+% Recursos usados no projecto
+\chapter*{Recursos usados no projecto}
+\addcontentsline{toc}{chapter}{Recursos usados no projecto}
 
-O primeiro passo começa com o inicio do c no Pentaho, este cria uma nova pasta para guardar os ficheiros criados e começa o processo de \textit{transformation}.\\
-O processo de \textit{transformation} começa por carregar o ficheiro com os dados dos codigos postais.
+Para o desenvolvimento do projecto foram utilizados os seguintes recursos:
 
+\textbf{Software:}
+\begin{itemize}
+\item \textit{Visual Studio 2017} para o desevolvimento do cliente e do serviço.
+\item \textit{Microsoft SQL Server Management 2017} para o criação de tabelas na base de dados.
+\item \textit{Firefox Quantum 57.0.4} para teste dos serviços criados.
+\end{itemize}
 
-\begin{figure} [!h]
-\centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/excel}
-\caption{Extracto do ficheiro com os dados}
-\label{excel}
-\end{figure}
-
-
-\clearpage
-
-Os dados são filtrados quer por expressões regulares quer pelo nome da freguesia. Os dados que já não forem necessarios são guardados em ficheiros .txt.
-
-\begin{figure} [!h]
-\centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/filtra}
-\caption{Parte da filtragem no processo de \textit{transformation} no Pentaho}
-\label{filtragem}
-\end{figure}
-
-De seguida os nome das ruas são concatenados e é gerado um ficheiro XML.
-
-\begin{figure} [!h]
-\centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/concatena}
-\caption{Contatenação do nome das ruas e criação do ficheiro XML}
-\label{xml}
-\end{figure}
-
-O proximo passo é a aplicação da stylesheet ao ficheiro XML.
-
-\begin{figure} [!h]
-\centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/xsl}
-\caption{Extracto do ficheiro XSL}
-\label{xsl}
-\end{figure}
-
-Por ultimo é enviado um email com o sucesso/insucesso da operação.
-
-\begin{figure} [!h]
-\centering
-\includegraphics[width=\textwidth]{Prints_Trabalho/mail}
-\caption{Flow de envio do email}
-\label{mail}
-\end{figure}
+\textbf{Outros:}
+\begin{itemize}
+\item \textit{json2csharp} para a criação de classes dos ficheiros \textit{JSON}. \cite{json2csharp}
+\item \textit{TinyTwitter} usada para facilitar a comunicação com o \textit{Twitter}.\cite{TinyTwitter}
+\item \textit{Azure} usado para alojar o serviço e base de dados. \cite{TinyTwitter}
+\end{itemize}
 
 
 
+% API's externas usadas
+\chapter*{API's externas usadas}
+\addcontentsline{toc}{chapter}{API's externas usadas}
+
+Foram usadas 4 API's externas:
+
+\begin{itemize}
+\item \textit{ipapi.co} - Usada para receber um ficheiro \textit{JSON} com as informações de um dado endereço IP.\cite{ipapi}
+\item \textit{ipify  A  Simple IP Address API} - Usada para receber uma string com o endereço IP da nossa ligação.\cite{ipify}
+\item \textit{Twitter Developer Platform} - Usada para publicar\textit{Tweets}  no \textit{Twitter}. \cite{twitter}
+\item \textit{OpenWeatherMap} - Usada para receber um ficheiro \textit{JSON} com a informação meteologica de uma dada cidade. \cite{Weather}
+\end{itemize}
+
+
+% Desenvolvimento
+\chapter*{Desenvolvimento}
+\addcontentsline{toc}{chapter}{Desenvolvimento}
+
+O serviço foi desenvolvido recorrendo a um serviço do tipo \textit{Windows Communication Foundation} (WCF). Este efetua a comunicação com as API's externas, trabalha os dados recebidos (se necessário) e disponibiliza serviços para um ou mais cliente usarem. Os serviços que disponibiliza são os seguintes:
+\begin{itemize}
+\item \textbf{GetIPInfo/\{enderecoIP\}} do tipo GET que envia a informação do endereço IP recebido no campo enderecoIP, num ficheiro \textit{JSON}
+\item \textbf{MyIp} do tipo GET que envia a informação do endereço IP da ligação numa string.
+\item \textbf{Tweet} do tipo POST que receber uma mensagem e publicar essa mensagem na conta \url{https://twitter.com/trabalhoisi}. Este recorre a uma biblioteca\cite{TinyTwitter} para facilitar a comunicação com o \textit{Twitter}.
+\item \textbf{Weather/\{nomeCidade\}} do tipo GET que envia a informação metereologica da cidade recebida  no campo nomeCidade, num ficheiro \textit{JSON}
+\end{itemize}
 
 \clearpage
 
+O serviço também contem objectos para guardar as respostas recebidas em \textit{JSON} criados no serviço \textit{json2csharp} tal como podemos verificar na imagem seguinte:
 
+\begin{figure} [!h]
+\centering
+\includegraphics[width=\textwidth]{Prints_Trabalho/objectos.png}
+\caption{Objectos \textit{JSON}}
+\label{Rotulo}
+\end{figure}
 
+Este serviço atualmente esta publicado no \textit{Azure} e pode ser chamado usando o seguinte link \url{http://wcfrest20180109101801.azurewebsites.net/Service.svc/}.
+
+\clearpage
+
+O cliente foi  desenvolvido recorrendo ao \textit{Windows Presentation Foundation} (WPF) que recorre a linguagem de marcação \textit{Extensible Application Markup Language} (XAML) . Este é composto por 3 ambas (Endereços de IP/ Twitter / Meteorologia) onde existe uma interface onde podemos testar os serviços desevolvidos e ver os resultados. Podemos ver a aba do \textit{Twitter} na imagem seguinte.
+
+\begin{figure} [!h]
+\centering
+\includegraphics[width=\textwidth]{Prints_Trabalho/cliente.png}
+\caption{Cliente desenvolvido}
+\label{Rotulo}
+\end{figure}
 
 
 % Conclução
 \chapter*{Conclusão}
 \addcontentsline{toc}{chapter}{Conclusão}
 
-Este trabalho permitiu-se aplicar os conhecimentos adquiridos durante o desenrolar da unidade curricular de Integração de Sistemas de Informação e explorar novos conceitos de ETL. Se tivesse mais tempo gostaria de ter implementado o uso de um serviço Web, que adiciona-se as coordenadas da rua ao ficheiro XML e ter criado ficheiros XML para todas as freguesias.
+Este trabalho permitiu-se aplicar os conhecimentos adquiridos durante o desenrolar da unidade curricular de Integração de Sistemas de Informação e explorar e desenvolver processos de interoperabilidade entre sistemas, assentes em serviços web. Uma das partes que correu mal no trabalho foi o uso da base de dados alojada no \textit{Azure} que por algum motivo não mantinha a ligação aberta quando a tentava usar no serviço. De qualquer forma acho que este trabalho foi um sucesso tendo conseguido alcançar os meus objetivos e ficando a conheçer mais sobre serviços RESTful.
 
 % Bilbiografia
 \begin{thebibliography}{2}
-	\bibitem{central_dados}
-	Transparência Hackday Portugal. \emph{Central de Dados}.  08 Novembro, 2017. 
-	\url{http://centraldedados.pt/codigos_postais/}
+
+	\bibitem{json2csharp}
+	\emph{json2csharp }.  01 Janeiro, 2018. 
+	\url{http://json2csharp.com/}
+
+
+	\bibitem{TinyTwitter}
+	jmhdez. \emph{TinyTwitter}.  01 Janeiro, 2018. 
+	\url{https://github.com/jmhdez/TinyTwitter}
+
+
+	\bibitem{Azure}
+	\emph{Azure}.  01 Janeiro, 2018. 
+	\url{https://portal.azure.com/}
+
+
+	\bibitem{ipapi}
+	\emph{ipapi.co}.  01 Janeiro, 2018. 
+	\url{https://ipapi.co/}
+
+
+	\bibitem{ipify}
+	\emph{ipify} A Simple IP Address API.  01 Janeiro, 2018. 
+	\url{https://www.ipify.org/}
+
+
+	\bibitem{twitter}
+	\emph{Twitter} Developer Platform.  03 Janeiro, 2018. 
+	\url{https://developer.twitter.com/}
+
+
+	\bibitem{Weather}
+	\emph{OpenWeatherMap} Current weather and forecasts in your city.  05 Janeiro, 2018. 
+	\url{http://openweathermap.org/current}
 	
 
 \end{thebibliography}
