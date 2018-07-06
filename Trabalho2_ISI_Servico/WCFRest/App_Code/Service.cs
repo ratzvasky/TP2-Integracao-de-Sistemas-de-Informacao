@@ -25,11 +25,12 @@ public class Service : IService
 
     #region Aux
 
-    private string consumerKey = "YnIjqi1adbf5dUKCVNOGHtGIk";
-    private string consumerKeySecret = "ZkWPYU1EWseIna0ESd22YCNIgOyhIatFZLVAsiDgUSlqRgYxbC";
-    private string accessToken = "950413886330753026-b4gMKXY2U020iE0hRybqwGed0CULdHG";
-    private string accessTokenSecret = "AO6Cqq6DYieFIf0Hkb0Wh4dVXibGhsrjaGQz25EkeJRUk";
-    private string weatherKey = "fdd4806b070459f96cd26e191823ae87";
+    // substituir apiKey pelas chaves correspondentes
+    private string consumerKey = "apiKey";
+    private string consumerKeySecret = "apiKey";
+    private string accessToken = "apiKey";
+    private string accessTokenSecret = "apiKey";
+    private string weatherKey = "apiKey";
 
     #endregion
 
